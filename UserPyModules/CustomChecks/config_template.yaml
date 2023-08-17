@@ -1,0 +1,197 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+# configure the checks
+# this template will automatically be relocated and renamed to 'config.yaml' to your parameterpath
+# ====================
+#
+# <CheckName>:
+#      <PackageType>
+#           Conditions:
+#               <PackageFeature>
+#                   <Key>: <Value>
+#           Parameters:
+#               <ParameterName>
+#                   <Key>: <Value>
+#
+# <Value> is of type boolean: declared key has to be set/not be set
+# <Value> is of type regex pattern: declared key has to match the pattern
+# <Value> is of type list: multiple values can be declared for a check
+#
+# Regular expressions:
+# lowerCamelCase: [a-z]+((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?
+# UpperCamelCase: ([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?
+# three digits: ^\d+\.\d+\.\d+$
+# no empty string: ^(?!\s*$).+
+
+CheckProjectAttributes:
+    # Checks the attributes of a package depending on the conditions
+    Enabled: true
+
+    CheckTestCases:  # check for test case package
+        Conditions:
+            ProjectName:
+                RegexPattern: '^.*'
+        Parameters:  # true/false if the specific attribute has to be set
+            Designer:
+                RegexPattern: '^.*'
+            Status: true
+            Testlevel: ["component", "module", "not specified", "system", "subsystem"]
+
+# ---------------------------------------------------------------------------
+
+CheckPackageAttributes:
+    # Checks the attributes of a package depending on the conditions
+    Enabled: true
+
+    CheckTestCases:  # check for test case package
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: true
+        Parameters:  # true/false if the specific attribute has to be set
+            Owner: false
+            Designer:
+                RegexPattern: '^.*'
+                CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+            Status: true
+            Testlevel: ["component", "module", "not specified", "system", "subsystem"]
+
+# ---------------------------------------------------------------------------
+
+CheckPackageGeneralInformation:
+    # Checks the general information of a package depending on the conditions
+    Enabled: true
+
+    CheckTestCases:  # check for test case package
+        Conditions:
+            PackageName:
+                RegexPattern: '^.*'
+            PackageFolder:
+                RegexPattern: 'testcases'
+        Parameters:
+            TestCaseFlag: true  # true/false if the test case flag has to be set
+            Version: true  # true/false if the version has to be set
+            Description:
+                Check: true  # true/false if the description has to be checked
+                MinLength: 50  # minimum number of characters in description
+                RegexPattern: '^((?!error).)*$'  # search for pattern in description
+                CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+
+    CheckLibrary:  # check for library packages
+        Conditions:
+            PackageName:
+                RegexPattern: '^.*'
+            PackageFolder:
+                RegexPattern: '^((?!testcases).)*$'
+        Parameters:
+            TestCaseFlag: false  # true/false if the test case flag has to be set
+            Version:  # regex check for version also possible
+                RegexPattern: ^[\d]*.[\d]*$
+                CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+            Description:
+                Check: true  # true/false if the description has to be checked
+
+# ---------------------------------------------------------------------------
+
+CheckPackageNamespace:
+    # Checks the naming of a package depending on the conditions
+    Enabled: true
+
+    CheckNameTestCase:  # check for test case package
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: true
+        Parameters:
+            RegexPattern: '^.*'
+
+    CheckNameLibrary:  # check for library packages
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: false
+        Parameters:
+            RegexPattern: '^.*'
+            CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+
+# ---------------------------------------------------------------------------
+
+CheckPackageVariables:
+    # Checks the attributes of package
+    Enabled: true
+
+    CheckAllPackages:  # check for all package types
+        Conditions:
+            PackageName:
+                RegexPattern: '^.*'
+        Parameters:
+            AllowUndefinedVariables: false
+            Order:
+                SortMethod: 'ascending'  # ascending|descending|None
+                NumberOfRelevantCharacters: 2  # should be int
+            Parameter:
+                Name:
+                    RegexPattern: '^P_(.*)'
+                    CustomMessage: 'P_<Name>'  # custom msg if regex does not match
+                Description:
+                    RegexPattern: '(.*)'
+                    CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+            ReturnValue:
+                Name:
+                    RegexPattern: '^R_(.*)'
+                    CustomMessage: 'R_<Name>'  # custom msg if regex does not match
+                Description:
+                    RegexPattern: '(.*)'
+                    CustomMessage: 'Please insert a message'  # custom msg if regex does not match
+            LocalVar:
+                Name:
+                    RegexPattern: '^V(ar)?_(.*)'
+                Description:
+                    RegexPattern: '(.*)'
+            Function:
+                Name:
+                    RegexPattern: '^F(unc)?_(.*)'
+                    CustomMessage: 'Func_<Name>'  # custom msg if regex does not match
+
+# ---------------------------------------------------------------------------
+
+CheckPackageContentForbidden:
+    # Checks for forbidden content
+    Enabled: false
+
+    CheckTestCases:  # check for test case package
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: true
+        Parameters:  # test steps that are not allowed to be used
+            Denylist: ["TsTodo"]
+
+    CheckLibrary:  # check for library packages
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: false
+        Parameters:  # test steps that are not allowed to be used
+            Denylist: ["TsPost", "TsPrecon"]
+
+# ---------------------------------------------------------------------------
+
+CheckPackageContentAllowed:
+    # Checks for allowlisted content only
+    Enabled: false
+
+    CheckTestCases:  # check for test case package
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: true
+        Parameters:  # test steps that are allowed to be used
+            Allowlist: ["TsPost", "TsPrecon", "TsKeyword", "TsKeywordArgument",
+                        "TsKeywordReturn", "TsWait", "TsBlock", "TsPostconditionBlock",
+                        "TsPreconditionBlock"]
+
+    CheckLibrary:  # check for library packages
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: false
+        Parameters:  # test steps that are allowed to be used
+            Allowlist: ["TsPost", "TsPrecon", "TsKeyword", "TsKeywordArgument",
+                        "TsKeywordReturn", "TsWait", "TsBlock", "TsPostconditionBlock",
+                        "TsPreconditionBlock"]

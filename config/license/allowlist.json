@@ -1,0 +1,13 @@
+{
+  "allowedLicenses": [
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "6.0.1",
+      "moduleName": "pyyaml",
+      "licenseUrl": "https://github.com/yaml/pyyaml/blob/6.0/LICENSE",
+      "moduleCopyright": "Copyright (c) 2017-2021 Ingy döt Net, 2006-2016 Kirill Simonov",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    }
+  ]
+}

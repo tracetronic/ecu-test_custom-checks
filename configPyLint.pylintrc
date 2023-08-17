@@ -1,0 +1,56 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+[MAIN]
+persistent=no
+unsafe-load-any-extension=no
+# C0114 missing-module-docstring
+# C0415 Import outside toplevel
+# W0611 unused-import
+# W1401 anomalous-backslash-in-string
+# W0702 No exception type(s) specified (bare-except)
+# R0912 Too many branches
+# R0913 Too many arguments
+# R0914 Too many local variables
+# R0915 Too many statements
+# W1514 Using open without explicitly specifying an encoding
+# W0707 raise-missing-from
+# W0246 Useless parent or super() delegation
+disable=C0114,C0415,W0611,W1401,W0702,R0912,R0913,R0914,R0915,W1514,W0707,W0246
+
+[REPORTS]
+output-format=colorized
+reports=no
+
+[BASIC]
+bad-names=foo,bar,baz,toto,tutu,tata
+class-const-naming-style=UPPER_CASE
+class-naming-style=PascalCase
+function-rgx=[_]{0,2}[a-z][a-z0-9_]{2,40}$|__[a-z]{2,10}__
+method-rgx=[_]{0,2}[a-z][a-z0-9_]{2,40}$|__[a-z]{2,10}__|_init_[_a-z]{2,40}|test[a-z0-9_]{2,40}|(Run)|(GetName)
+variable-rgx=[a-z_][A-Za-z0-9_]{1,40}$
+argument-rgx=[a-z_][A-Za-z0-9_]{1,40}$
+attr-rgx=[a-z_][A-Za-z0-9_]{1,40}$|P[A-Z][A-Za-z0-9_]{1,40}$
+const-rgx=[A-Z]{2,40}|wxID_[A-Z]{2,40}
+good-names=i,j,k,x,y,z,e,ex
+module-rgx=[a-z_]|[A-Za-z]|^__
+no-docstring-rgx=[t|T]est|^__|^[t|T]est
+
+[EXCEPTIONS]
+#overgeneral-exceptions=BaseException,Exception
+
+[VARIABLES]
+dummy-variables-rgx=.+__$|dummy
+
+[TYPECHECK]
+ignore-mixin-members=yes
+ignored-classes=UserPyModules,TTXDummy,Connection
+
+[FORMAT]
+max-line-length=100
+indent-string='    '
+
+[SIMILARITIES]
+ignore-imports=yes
+min-similarity-lines=8
