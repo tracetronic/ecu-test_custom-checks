@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: TraceTronic CustomChecks
+Upstream-Contact: TraceTronic GmbH <info@tracetronic.de>
+Source: https://github.com/tracetronic/custom-checks
+
+Files: *.gitignore */issue_templates/* .workspace/* Packages/* requirements* **/*.json *.png
+Copyright: 2022 TraceTronic GmbH <info@tracetronic.de>
+License: MIT

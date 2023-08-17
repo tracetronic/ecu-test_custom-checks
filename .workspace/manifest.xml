@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MANIFEST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<workspaceNamespace xsi:type="string">CustomChecks</workspaceNamespace>
+	<worspaceIsLibrary xsi:type="boolean">True</worspaceIsLibrary>
+	<workspaceTitle xsi:type="string">CustomChecks</workspaceTitle>
+	<workspaceVersion xsi:type="string">1.0</workspaceVersion>
+</MANIFEST>

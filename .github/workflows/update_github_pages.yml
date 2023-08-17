@@ -1,0 +1,33 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Update GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_gh_pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+      - name: Install poetry
+        run: pip3 install poetry
+      - name: Install dependencies
+        run: poetry install --only dev,docs
+      - name: Create Sphinx documentation
+        run: |
+          poetry run sphinx-apidoc -f -o ./docs/source ./UserPyModules
+          poetry run sphinx-build -b html ./docs/source ./docs/build
+      - name: Copy additional documentation resources into docs folder
+        run: |
+          cp -f README.md docs/README.md
+          cp -f LICENSE docs/LICENSE
+      - name: Publish GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs

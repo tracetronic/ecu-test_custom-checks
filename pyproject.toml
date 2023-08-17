@@ -1,0 +1,35 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+[tool.poetry]
+name =  "TraceTronic CustomChecks"
+version = "1.0"
+description = "'CustomChecks' is an ECU-TEST module to check packages and analysis packages."
+license = "MIT"
+authors = ["TraceTronic"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7.2"
+pyyaml = "^6.0.1"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.4"
+jsonschema = "^3.2.0"
+coverage = "^5.5"
+psutil = "^5.8.0"
+requests = "^2.24.0"
+pylint = "^2.14.4"
+yamllint = "^1.32.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^5.0.2"
+python_docs_theme = "^2022.1"
+

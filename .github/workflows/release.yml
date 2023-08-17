@@ -1,0 +1,30 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Release New Version
+
+env:
+  release_prefix: "CustomChecks-"
+  release_version: "1.0"  # will later be set by a previous workflow which reads the version number
+  description: "New release of CustomChecks"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create new GitHub release
+        env:
+          new_tag: "${release_prefix}${release_version}"
+        run: >
+          curl --fail
+          -X POST
+          -H "Accept: application/vnd.github+json"
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+          --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+          -d '{"tag_name":"'${{ env.new_tag }}'","target_commitish":"main","name":"'${{ env.new_tag }}'","body":"'"${description}"'","draft":false,"prerelease":false,"generate_release_notes":false}'
