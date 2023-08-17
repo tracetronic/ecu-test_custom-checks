@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>UserPyModules.CustomChecks.helper package &#8212; CustomChecks  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="userpymodules-customchecks-helper-package">
+<h1>UserPyModules.CustomChecks.helper package<a class="headerlink" href="#userpymodules-customchecks-helper-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.CheckAttributes">
+<span id="userpymodules-customchecks-helper-checkattributes-module"></span><h2>UserPyModules.CustomChecks.helper.CheckAttributes module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.CheckAttributes" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.CheckAttributes.check_attributes">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.CheckAttributes.</span></span><span class="sig-name descname"><span class="pre">check_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.CheckAttributes.check_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic attribute checker, which proceeds conditionally, depending on different test_item types</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<p>test_item - Package or Project(from Object API)
+check_type - check type corresponding to test_item (value of enum CheckType)
+config - the current config.yaml object
+parameters - the parameters from the config.yaml for the attribute check</p>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h3>
+<p>check results for unsuccessful checks as a list of CheckResult</p>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.CheckType">
+<span id="userpymodules-customchecks-helper-checktype-module"></span><h2>UserPyModules.CustomChecks.helper.CheckType module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.CheckType" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.CheckType.CheckType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.CheckType.</span></span><span class="sig-name descname"><span class="pre">CheckType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.CheckType.CheckType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enum for type of test item</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.CheckType.CheckType.ANALYSIS">
+<span class="sig-name descname"><span class="pre">ANALYSIS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ANALYSIS_PACKAGE_CHECK'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.CheckType.CheckType.ANALYSIS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.CheckType.CheckType.PACKAGE">
+<span class="sig-name descname"><span class="pre">PACKAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PACKAGE_CHECK'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.CheckType.CheckType.PACKAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.CheckType.CheckType.PROJECT">
+<span class="sig-name descname"><span class="pre">PROJECT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROJECT_CHECK'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.CheckType.CheckType.PROJECT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.ConfigKeys">
+<span id="userpymodules-customchecks-helper-configkeys-module"></span><h2>UserPyModules.CustomChecks.helper.ConfigKeys module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.ConfigKeys" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ConfigKeys.</span></span><span class="sig-name descname"><span class="pre">ConditionKeys</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class supplies all possible config condition keys used in the CustomChecks as constants.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.ENABLED">
+<span class="sig-name descname"><span class="pre">ENABLED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Enabled'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_FOLDER">
+<span class="sig-name descname"><span class="pre">PACKAGE_FOLDER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PackageFolder'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_FOLDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_NAME">
+<span class="sig-name descname"><span class="pre">PACKAGE_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PackageName'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_PROPERTIES">
+<span class="sig-name descname"><span class="pre">PACKAGE_PROPERTIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PackageProperties'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PACKAGE_PROPERTIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PROJECT_FOLDER">
+<span class="sig-name descname"><span class="pre">PROJECT_FOLDER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ProjectFolder'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PROJECT_FOLDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PROJECT_NAME">
+<span class="sig-name descname"><span class="pre">PROJECT_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ProjectName'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.PROJECT_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.REGEX_PATTERN">
+<span class="sig-name descname"><span class="pre">REGEX_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RegexPattern'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.REGEX_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.TESTCASEFLAG">
+<span class="sig-name descname"><span class="pre">TESTCASEFLAG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TestCaseFlag'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ConditionKeys.TESTCASEFLAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ConfigKeys.</span></span><span class="sig-name descname"><span class="pre">ParameterKeys</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class supplies all possible config parameter keys used in the CustomChecks as constants.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ALLOWLIST">
+<span class="sig-name descname"><span class="pre">ALLOWLIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Allowlist'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ALLOWLIST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ALLOW_UNDEFINED">
+<span class="sig-name descname"><span class="pre">ALLOW_UNDEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AllowUndefinedVariables'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ALLOW_UNDEFINED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.CHECK">
+<span class="sig-name descname"><span class="pre">CHECK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Check'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.CHECK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.CUSTOM_MESSAGE">
+<span class="sig-name descname"><span class="pre">CUSTOM_MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CustomMessage'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.CUSTOM_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.DENYLIST">
+<span class="sig-name descname"><span class="pre">DENYLIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Denylist'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.DENYLIST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.DESCRIPTION">
+<span class="sig-name descname"><span class="pre">DESCRIPTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Description'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.FUNCTION">
+<span class="sig-name descname"><span class="pre">FUNCTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Function'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.FUNCTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.LOCALVAR">
+<span class="sig-name descname"><span class="pre">LOCALVAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LocalVar'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.LOCALVAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.MINLENGTH">
+<span class="sig-name descname"><span class="pre">MINLENGTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MinLength'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.MINLENGTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Name'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.NUMBER_OF_RELEVANT_CHARACTERS">
+<span class="sig-name descname"><span class="pre">NUMBER_OF_RELEVANT_CHARACTERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NumberOfRelevantCharacters'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.NUMBER_OF_RELEVANT_CHARACTERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ORDER">
+<span class="sig-name descname"><span class="pre">ORDER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Order'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.ORDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.PARAMETER">
+<span class="sig-name descname"><span class="pre">PARAMETER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Parameter'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.PARAMETER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_DESCRIPTION">
+<span class="sig-name descname"><span class="pre">REGEX_DESCRIPTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RegexDescription'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_PATTERN">
+<span class="sig-name descname"><span class="pre">REGEX_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RegexPattern'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.RETURNVALUE">
+<span class="sig-name descname"><span class="pre">RETURNVALUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ReturnValue'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.RETURNVALUE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SORT_METHOD">
+<span class="sig-name descname"><span class="pre">SORT_METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SortMethod'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SORT_METHOD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.TESTCASEFLAG">
+<span class="sig-name descname"><span class="pre">TESTCASEFLAG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TestCaseFlag'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.TESTCASEFLAG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.UNDEFINED">
+<span class="sig-name descname"><span class="pre">UNDEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Undefined'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.UNDEFINED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.VERSION">
+<span class="sig-name descname"><span class="pre">VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Version'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.Configuration">
+<span id="userpymodules-customchecks-helper-configuration-module"></span><h2>UserPyModules.CustomChecks.helper.Configuration module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.Configuration" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.Configuration.Configuration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.Configuration.</span></span><span class="sig-name descname"><span class="pre">Configuration</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.Configuration.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent the CustomChecks configuration (config.yaml).</p>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>config_rel_path<span class="classifier">str</span></dt><dd><p>name of the check</p>
+</dd>
+<dt>config<span class="classifier">list of dict</span></dt><dd><p>input from yaml file</p>
+</dd>
+</dl>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>get_all_checks(custom_check_name):</dt><dd><p>Return all checks from yaml</p>
+</dd>
+<dt>get_check_parameters(check_name):</dt><dd><p>Return parameters</p>
+</dd>
+<dt>get_check_conditions(custom_check_name, check):</dt><dd><p>Get all conditions for the given check</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.Configuration.Configuration.get_all_checks">
+<span class="sig-name descname"><span class="pre">get_all_checks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_check_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.Configuration.Configuration.get_all_checks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of detail check conditions.</p>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>custom_check_name<span class="classifier">str</span></dt><dd><p>Name of the check.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h4>Returns<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>dictionary with check details</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.Configuration.Configuration.get_check_conditions">
+<span class="sig-name descname"><span class="pre">get_check_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_check_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.Configuration.Configuration.get_check_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all conditions for the given check.</p>
+<section id="id3">
+<h4>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>custom_check_name<span class="classifier">str</span></dt><dd><p>Name of the check.</p>
+</dd>
+<dt>check<span class="classifier">dict</span></dt><dd><p>Dictionary with all items of the check</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h4>Returns<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>Conditions of the check</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.Configuration.Configuration.get_check_parameters">
+<span class="sig-name descname"><span class="pre">get_check_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_check_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.Configuration.Configuration.get_check_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all parameters for the given check.</p>
+<section id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>custom_check_name<span class="classifier">str</span></dt><dd><p>Name of the check.</p>
+</dd>
+<dt>check<span class="classifier">dict</span></dt><dd><p>Dictionary with all items of the check</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h4>Returns<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><p>Parameters of the check</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.Configuration.Configuration.initialize_config">
+<span class="sig-name descname"><span class="pre">initialize_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_config_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CustomChecks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_config_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'config.yaml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_config_template_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'config_template.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.Configuration.Configuration.initialize_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the Configuration.</p>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>ref_config_folder: str</dt><dd><p>path to the folder of the reference configuration</p>
+</dd>
+<dt>ref_config_path: str</dt><dd><p>path to the reference configuration file</p>
+</dd>
+<dt>ref_config_template_path: str</dt><dd><p>path to the reference template configuration file</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h4>Returns<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<p>tuple (object of used configuration, relative path of the used configuration)</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.RunHelper">
+<span id="userpymodules-customchecks-helper-runhelper-module"></span><h2>UserPyModules.CustomChecks.helper.RunHelper module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.RunHelper" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.RunHelper.check_conditions">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.RunHelper.</span></span><span class="sig-name descname"><span class="pre">check_conditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.RunHelper.check_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether the conditions of the check_object to execute a specific check are fulfilled.
+These conditions are specified under the respective ‘Conditions’ section in the config.yaml.</p>
+<section id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<p>check_name: Current CustomCheck name
+check_object: ECU-TEST Package-Object, Project-Object from Object Api
+check: Current type of package that gets checked for conditions</p>
+</section>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<p>True if all conditions are fulfilled for this package</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.RunHelper.get_check_activity">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.RunHelper.</span></span><span class="sig-name descname"><span class="pre">get_check_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.RunHelper.get_check_activity" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<p>check: Current check configurations in config file</p>
+</section>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<p>True if check is set active in config or flag is missing
+Check configurations with the ‘Enabled’ flag removed</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.RunHelper.package_type">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.RunHelper.</span></span><span class="sig-name descname"><span class="pre">package_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.RunHelper.package_type" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<p>check_name: Current CustomCheck name
+check_object: ECU-TEST-Package-Object from Object Api
+check: Current type of package that gets checked for conditions</p>
+</section>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<p>True if check_conditions was successful</p>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper.ecu_test_api">
+<span id="userpymodules-customchecks-helper-ecu-test-api-module"></span><h2>UserPyModules.CustomChecks.helper.ecu_test_api module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.ecu_test_api" title="Permalink to this heading">¶</a></h2>
+<p>Wrapper for importing ECU-TEST ApiClient of currently running ECU-TEST version.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">ObjApiProvider</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to inherit from to have access to the object api</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.comp_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">comp_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.comp_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id15">
+<h3>Returns<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>ComponentApi from the ProjectApi</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.map_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.map_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>MappingApi from the PackageApi</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.obj_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obj_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.obj_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id17">
+<h3>Returns<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>ECU-TEST Object API</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.pkg_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pkg_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.pkg_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id18">
+<h3>Returns<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>PackageApi from the ECU-TEST Object API</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.prj_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prj_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.prj_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id19">
+<h3>Returns<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>ProjectApi from the ECU-TEST Object API</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.ta_api">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ta_api</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider.ta_api" title="Permalink to this definition">¶</a></dt>
+<dd><section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>TraceAnalysisApi from the ECU-TEST Object API</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.get_api">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">get_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.get_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of the ECU-TEST api</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.get_object_api">
+<span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">get_object_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.get_object_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Object API of ECU-TEST.</p>
+<section id="id21">
+<h3>Returns<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>object api handler</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.helper">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CustomChecks</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023 TraceTronic GmbH.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/UserPyModules.CustomChecks.helper.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

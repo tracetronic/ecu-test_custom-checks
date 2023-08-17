@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>UserPyModules.CustomChecks.api package &#8212; CustomChecks  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="userpymodules-customchecks-api-package">
+<h1>UserPyModules.CustomChecks.api package<a class="headerlink" href="#userpymodules-customchecks-api-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck">
+<span id="userpymodules-customchecks-api-abstractanalysispackagecheck-module"></span><h2>UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck module<a class="headerlink" href="#module-UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck.AbstractAnalysisPackageCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck.</span></span><span class="sig-name descname"><span class="pre">AbstractAnalysisPackageCheck</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck.AbstractAnalysisPackageCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck" title="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractCheck</span></code></a></p>
+<p>Base class for all AnalysisPackage checks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck.AbstractAnalysisPackageCheck.Run">
+<span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysisPackage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractAnalysisPackageCheck.AbstractAnalysisPackageCheck.Run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the given analysis package and returns the checked results.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.api.AbstractCheck">
+<span id="userpymodules-customchecks-api-abstractcheck-module"></span><h2>UserPyModules.CustomChecks.api.AbstractCheck module<a class="headerlink" href="#module-UserPyModules.CustomChecks.api.AbstractCheck" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.api.AbstractCheck.</span></span><span class="sig-name descname"><span class="pre">AbstractCheck</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for all checks. The ‘GetName’ and ‘check’ methods need to be implemented in the
+actual checks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.GetName">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.GetName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will always be implemented in the custom check as
+return type(self).__name__ and returns the name of the class type.
+Belongs to the CustomChecks interface for ECU-TEST.</p>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h3>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.Run">
+<span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.Run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the checks. Uses the template method ‘check’, which must be implemented in the
+check modules. Belongs to the CustomChecks interface for ECU-TEST.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3>Returns<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>list of CheckResult (empty if no violation was found)</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.check">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Needs to be implemented in the custom check (template method)</p>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
+</dd>
+<dt>parameters: any</dt><dd><p>the Parameters entry from config.yaml</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h3>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>list of CheckResult (empty if no violation was found)</p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.api.AbstractPackageCheck">
+<span id="userpymodules-customchecks-api-abstractpackagecheck-module"></span><h2>UserPyModules.CustomChecks.api.AbstractPackageCheck module<a class="headerlink" href="#module-UserPyModules.CustomChecks.api.AbstractPackageCheck" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.api.AbstractPackageCheck.</span></span><span class="sig-name descname"><span class="pre">AbstractPackageCheck</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck" title="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractCheck</span></code></a></p>
+<p>Base class for all Package checks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck.Run">
+<span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck.Run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the given package and returns the checked results.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.api.AbstractProjectCheck">
+<span id="userpymodules-customchecks-api-abstractprojectcheck-module"></span><h2>UserPyModules.CustomChecks.api.AbstractProjectCheck module<a class="headerlink" href="#module-UserPyModules.CustomChecks.api.AbstractProjectCheck" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.api.AbstractProjectCheck.</span></span><span class="sig-name descname"><span class="pre">AbstractProjectCheck</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck" title="UserPyModules.CustomChecks.api.AbstractCheck.AbstractCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractCheck</span></code></a></p>
+<p>Base class for all Project checks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck.Run">
+<span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck.Run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the given project and returns the checked results.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.api.CheckResult">
+<span id="userpymodules-customchecks-api-checkresult-module"></span><h2>UserPyModules.CustomChecks.api.CheckResult module<a class="headerlink" href="#module-UserPyModules.CustomChecks.api.CheckResult" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.CheckResult.CheckResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.api.CheckResult.</span></span><span class="sig-name descname"><span class="pre">CheckResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.api.CheckResult.CheckResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A check result for check violations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.api.CheckResult.CheckResult.message">
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.api.CheckResult.CheckResult.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserPyModules.CustomChecks.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-UserPyModules.CustomChecks.api" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CustomChecks</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023 TraceTronic GmbH.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/UserPyModules.CustomChecks.api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
