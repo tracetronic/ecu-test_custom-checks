@@ -50,11 +50,11 @@ especially the [ECU-TEST Execution Plugin](https://github.com/jenkinsci/ecu-test
 
 ### Installation
 
-The __recommended way__ to install the CustomChecks for ECU-TEST is by putting it into a _library workspace_, ensuring maximum
+The __recommended way__ to install the CustomChecks for ECU-TEST is by using it as a _library workspace_, ensuring maximum
 flexibility.
 
 1. Clone this repository
-2. Add the path to the cloned repository to the Manifest:
+2. Add the path of the cloned repository to the Manifest of your workspace:
 
 <img src="./docs/images/ecutest_manifest.png" align="left" alt="Check button" style="padding-right: 15px;"><br clear="left" />
 
