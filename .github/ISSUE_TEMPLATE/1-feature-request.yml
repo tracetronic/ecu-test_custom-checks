@@ -1,0 +1,31 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: '💡 Feature Request'
+description: 'Feature request template for CustomChecks development'
+labels: ['feature']
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature request
+      description: Describe the main value of the feature request.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: Upstream changes
+      description: Add upstream changes as checkboxes (if needed).
+      placeholder: Type "no changes" if no changes are needed.
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Add the expected results after task completion as checkboxes.
+    validations:
+      required: true
