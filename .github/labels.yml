@@ -1,0 +1,15 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+- name: feature
+  color: 92d050
+  description: New feature request
+
+- name: chore
+  color: f2cb4b
+  description: Maintenance changes and refactoring
+
+- name: major
+  color: 000000
+  description: Major version update

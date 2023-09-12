@@ -1,0 +1,37 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+# Configuration for Release Drafter: https://github.com/toolmantim/release-drafter
+name-template: CustomChecks-$RESOLVED_VERSION
+tag-template: CustomChecks-$RESOLVED_VERSION
+version-template: $MAJOR.$MINOR
+
+# Emoji reference: https://gitmoji.carloscuesta.me/
+categories:
+  - title: 💡 New features and improvements
+    labels:
+      - feature
+  - title: 🏠 Maintenance
+    labels:
+      - chore
+  - title: ✍ Other changes
+  # Default label used by Dependabot
+  - title: 📦 Dependency updates
+    labels:
+      - dependencies
+    collapse-after: 15
+
+template: |
+  <!-- Optional: add a release summary here -->
+  $CHANGES
+
+replacers:
+  - search: '@dependabot-preview'
+    replace: '@dependabot'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  default: minor

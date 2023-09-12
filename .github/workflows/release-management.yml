@@ -1,0 +1,26 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_release_draft:
+    name: Update Release Draft
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: check 'chore' tag of latest PR
+        run: .github/automation/check_chore_label.sh ${{ github.sha }} ${{ secrets.GITHUB_TOKEN }}
+      - name: Check variable
+        run: echo "Without chore label... $withoutChoreLabel"
+      - uses: release-drafter/release-drafter@v5.24.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          publish: ${{ env.withoutChoreLabel }}

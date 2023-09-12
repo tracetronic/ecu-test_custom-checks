@@ -153,7 +153,7 @@ For a manual execution of the CustomChecks for a specific package or project, si
 
 #### Automation via API
 For automation purposes, such as usage within a CI, you can use the ECU-TEST REST-API. You can find the REST-API Swagger documentation
-of you local ECU-TEST instance under http://127.0.0.1:5050/api/v1/ui/. With the _/checks_ endpoint, you can create check execution orders and
+of you local ECU-TEST instance under _http[]()://127.0.0.1:5050/api/v1/ui/_. With the _/checks_ endpoint, you can create check execution orders and
 retrieve information about the result of the checks. The following code snippet shows an example in [Python](https://www.python.org/):
 
 ```Python
@@ -378,7 +378,7 @@ Yo do _not_ need to reload anything when simply modifying the _config.yaml_.
 ## Contribution
 
 To report a bug or request an enhancement to this plugin please raise a
-new [GitHub issue](https://github.com/tracetronic/custom-checks/issues/new/choose).
+new [GitHub issue](https://github.com/tracetronic/ecu-test_custom-checks/issues/new/choose).
 
 
 ## Support

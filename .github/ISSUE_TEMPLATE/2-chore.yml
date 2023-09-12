@@ -1,0 +1,31 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: '🏠 Chore'
+description: 'Chore template for CustomChecks development'
+labels: ['chore']
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the task
+      description: Describe the main value of the task.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: Upstream changes
+      description: Add upstream changes as checkboxes (if needed).
+      placeholder: Type "no changes" if no changes are needed.
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Add the expected results after task completion as checkboxes.
+    validations:
+      required: true
