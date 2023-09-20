@@ -33,6 +33,15 @@ language = 'en'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'alabaster'
+html_theme_options = {
+    'description': 'For further information see GitHub',
+    'github_user': 'tracetronic',
+    'github_repo': 'ecu-test_custom-checks/tree/gh-pages',
+    'github_button': True,
+    'github_count': True,
+    # https://ghbtns.com/
+    'github_type':  'watch',
+}
 
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration

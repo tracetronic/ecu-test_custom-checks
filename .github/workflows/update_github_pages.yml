@@ -21,13 +21,31 @@ jobs:
         run: poetry install --only dev,docs
       - name: Create Sphinx documentation
         run: |
+          mkdir docs/docs
           poetry run sphinx-apidoc -f -o ./docs/source ./UserPyModules
-          poetry run sphinx-build -b html ./docs/source ./docs/build
+          poetry run sphinx-build -b html ./docs/source ./docs/docs
+          rm -r docs/source
       - name: Copy additional documentation resources into docs folder
         run: |
           cp -f README.md docs/README.md
           cp -f LICENSE docs/LICENSE
+          cp -f -R docs/images docs/docs/images
       - name: Publish GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           folder: docs
+          clean: true
+      - name: Create .nojekyll file to avoid Jekyll processing
+        run: |
+          git checkout gh-pages
+          git pull
+          if [ -f "docs/.nojekyll" ]; then
+            echo ".nojekyll already exists. Exiting."
+            exit 0
+          fi
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          touch docs/.nojekyll
+          git add docs/.nojekyll
+          git commit --signoff -m "Add .nojekyll file"
+          git push
