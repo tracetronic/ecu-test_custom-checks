@@ -15,9 +15,9 @@ Welcome to CustomChecks documentation
    :maxdepth: 2
    :caption: Contents:
 
-   UserPyModules.checks
-   UserPyModules.checks.helper
-   UserPyModules.checks.api
+   UserPyModules.CustomChecks
+   UserPyModules.CustomChecks.helper
+   UserPyModules.CustomChecks.api
 
 Indices and tables
 ==================
