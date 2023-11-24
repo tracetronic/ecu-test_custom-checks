@@ -195,3 +195,23 @@ CheckPackageContentAllowed:
             Allowlist: ["TsPost", "TsPrecon", "TsKeyword", "TsKeywordArgument",
                         "TsKeywordReturn", "TsWait", "TsBlock", "TsPostconditionBlock",
                         "TsPreconditionBlock"]
+
+# ---------------------------------------------------------------------------
+
+CheckPackageLocalMapping:
+    # Checks the local mapping of a package
+    Enabled: false
+
+    CheckTestCases: # check for test case package
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: true
+        Parameters: # mapping types that are not allowed to be used in local mapping
+            Denylist: ["MODEL", "MEASUREMENT", "CALIBRATION"]
+
+    CheckLibrary: # check for library packages
+        Conditions:
+            PackageProperties:
+                TestCaseFlag: false
+        Parameters: # mapping types that are not allowed to be used in local mapping
+            Denylist: ["MODEL", "MEASUREMENT", "CALIBRATION"]
