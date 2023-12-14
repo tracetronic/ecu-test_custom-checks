@@ -45,6 +45,14 @@ UserPyModules.CustomChecks.CheckPackageGeneralInformation module
    :undoc-members:
    :show-inheritance:
 
+UserPyModules.CustomChecks.CheckPackageLocalMapping module
+----------------------------------------------------------
+
+.. automodule:: UserPyModules.CustomChecks.CheckPackageLocalMapping
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 UserPyModules.CustomChecks.CheckPackageNamespace module
 -------------------------------------------------------
 
