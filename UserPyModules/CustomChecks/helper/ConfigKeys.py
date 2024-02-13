@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -29,6 +29,7 @@ class ParameterKeys:
     TESTCASEFLAG = 'TestCaseFlag'
     VERSION = 'Version'
     ALLOW_UNDEFINED = 'AllowUndefinedVariables'
+    SEARCH_DEPTH = 'SearchDepth'
 
 @dataclass(frozen=True)
 class ConditionKeys:

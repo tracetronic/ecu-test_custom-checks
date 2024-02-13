@@ -1,13 +1,13 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
 [tool.poetry]
-name =  "TraceTronic CustomChecks"
+name =  "tracetronic CustomChecks"
 version = "1.0"
-description = "'CustomChecks' is an ECU-TEST module to check packages and analysis packages."
+description = "'CustomChecks' is an ecu.test module to check packages and analysis packages."
 license = "MIT"
-authors = ["TraceTronic"]
+authors = ["tracetronic"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

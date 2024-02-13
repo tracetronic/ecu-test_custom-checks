@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -182,19 +182,25 @@ CheckPackageContentAllowed:
         Conditions:
             PackageProperties:
                 TestCaseFlag: true
-        Parameters:  # test steps that are allowed to be used
+        Parameters:
+            # test steps that are allowed to be used
             Allowlist: ["TsPost", "TsPrecon", "TsKeyword", "TsKeywordArgument",
                         "TsKeywordReturn", "TsWait", "TsBlock", "TsPostconditionBlock",
                         "TsPreconditionBlock"]
+            # number (int) of layers which will be checked within the package; null if all layers should be checked
+            SearchDepth: null
 
     CheckLibrary:  # check for library packages
         Conditions:
             PackageProperties:
                 TestCaseFlag: false
-        Parameters:  # test steps that are allowed to be used
+        Parameters:
+            # test steps that are allowed to be used
             Allowlist: ["TsPost", "TsPrecon", "TsKeyword", "TsKeywordArgument",
                         "TsKeywordReturn", "TsWait", "TsBlock", "TsPostconditionBlock",
                         "TsPreconditionBlock"]
+            # number (int) of layers which will be checked within the package; null if all layers should be checked
+            SearchDepth: null
 
 # ---------------------------------------------------------------------------
 
@@ -215,3 +221,5 @@ CheckPackageLocalMapping:
                 TestCaseFlag: false
         Parameters: # mapping types that are not allowed to be used in local mapping
             Denylist: ["MODEL", "MEASUREMENT", "CALIBRATION"]
+
+# ----------------------------------------------------------------------------

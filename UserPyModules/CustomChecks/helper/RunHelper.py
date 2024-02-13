@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -33,7 +33,7 @@ def check_conditions(check_name, check_object, check) -> bool:
     Parameters
     ----------
     check_name: Current CustomCheck name
-    check_object: ECU-TEST Package-Object, Project-Object from Object Api
+    check_object: ecu.test Package-Object, Project-Object from Object Api
     check: Current type of package that gets checked for conditions
 
     Returns
@@ -97,7 +97,7 @@ def package_type(check_name, check_object, check) -> bool:
     Parameters
     ----------
     check_name: Current CustomCheck name
-    check_object: ECU-TEST-Package-Object from Object Api
+    check_object: ecu.test-Package-Object from Object Api
     check: Current type of package that gets checked for conditions
 
     Returns

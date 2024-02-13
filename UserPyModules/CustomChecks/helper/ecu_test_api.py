@@ -1,10 +1,10 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
 # encoding: ISO-8859-1 # pylint: disable=C2503
 """
-Wrapper for importing ECU-TEST ApiClient of currently running ECU-TEST version.
+Wrapper for importing ecu.test ApiClient of currently running ecu.test version.
 """
 
 try:
@@ -14,12 +14,12 @@ except:
 
 API_HANDLER = None
 
-ECU_TEST_ENV = {"ECU-TEST.exe", 'ecu-test_daemon'}
+ECU_TEST_ENV = {"ECU-TEST.exe", "ecu.test.exe", "ecu-test_daemon"}
 
 
 def get_api():
     """
-    Returns an instance of the ECU-TEST api
+    Returns an instance of the ecu.test api
     """
     global API_HANDLER  # pylint: disable=W0603
     if API_HANDLER is None:
@@ -31,7 +31,7 @@ def get_api():
 
 def get_object_api():
     """
-    Gets the Object API of ECU-TEST.
+    Gets the Object API of ecu.test.
 
     Returns
     -------
@@ -56,7 +56,7 @@ class ObjApiProvider():
 
         Returns
         -------
-            ECU-TEST Object API
+            ecu.test Object API
 
         """
         if self._obj_api is None:
@@ -69,7 +69,7 @@ class ObjApiProvider():
 
         Returns
         -------
-            PackageApi from the ECU-TEST Object API
+            PackageApi from the ecu.test Object API
 
         """
         return self.obj_api.PackageApi
@@ -80,7 +80,7 @@ class ObjApiProvider():
 
         Returns
         -------
-            TraceAnalysisApi from the ECU-TEST Object API
+            TraceAnalysisApi from the ecu.test Object API
 
         """
         return self.pkg_api.TraceAnalysisApi
@@ -102,7 +102,7 @@ class ObjApiProvider():
 
         Returns
         -------
-            ProjectApi from the ECU-TEST Object API
+            ProjectApi from the ecu.test Object API
 
         """
         return self.obj_api.ProjectApi

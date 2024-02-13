@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -15,8 +15,8 @@ import sys
 sys.path.insert(0, os.path.abspath("../.."))
 
 project = 'CustomChecks'
-copyright = '2023 TraceTronic GmbH'
-author = 'TraceTronic GmbH'
+copyright = '2023 tracetronic GmbH'
+author = 'tracetronic GmbH'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

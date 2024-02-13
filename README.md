@@ -1,35 +1,33 @@
 <!-- 
-Copyright (C) 2023 TraceTronic GmbH
+Copyright (C) 2023 tracetronic GmbH
 
 SPDX-License-Identifier: MIT
 -->
 
-# TraceTronic CustomChecks
+# tracetronic CustomChecks
 
-[![ECU-TEST](https://img.shields.io/badge/ECU--TEST-2022.2-orange)](https://www.tracetronic.com/products/ecu-test/) [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE) [![GitHub Release](https://img.shields.io/github/release/tracetronic/ecu-test_custom-checks.svg?label=version)](https://github.com/tracetronic/ecu-test_custom-checks/releases) [![Reuse](https://github.com/tracetronic/ecu-test_custom-checks/actions/workflows/reuse.yml/badge.svg)](https://github.com/tracetronic/ecu-test_custom-checks/actions/workflows/reuse.yml)
+[![ecu.test](https://img.shields.io/badge/ecu.test-2022.2-orange)](https://www.tracetronic.com/products/ecu-test/) [![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE) [![GitHub Release](https://img.shields.io/github/release/tracetronic/ecu-test_custom-checks.svg?label=version)](https://github.com/tracetronic/ecu-test_custom-checks/releases) [![Reuse](https://github.com/tracetronic/ecu-test_custom-checks/actions/workflows/reuse.yml/badge.svg)](https://github.com/tracetronic/ecu-test_custom-checks/actions/workflows/reuse.yml)
 
-The CustomChecks project implements checks for packages and projects that can be provided individually as UserPyModules and thus extend the Built-In-Checks that are delivered directly with [ECU-TEST](https://www.tracetronic.com/products/ecu-test/). All checks are available as open source and can be used as a basis for project specific CustomChecks.
+The CustomChecks project implements checks for packages and projects that can be provided individually as UserPyModules and thus extend the Built-In-Checks that are delivered directly with [ecu.test](https://www.tracetronic.com/products/ecu-test/). All checks are available as open source and can be used as a basis for project specific CustomChecks.
 
-<img src="./docs/images/ecutest_logo.png" align="left" alt="ECU-TEST Logo" style="padding-right: 15px;"> 
+<img src="./docs/images/ecutest_logo.png" align="left" alt="ecu.test Logo" style="padding-right:15px;height=150px"> 
 
-ECU-TEST is a test automation software for the validation of embedded systems in automotive environments developed by
-TraceTronic GmbH.<br/>
+ecu.test is a test automation software for the validation of embedded systems in automotive environments developed by
+tracetronic GmbH.<br/>
 This software executes regression tests which are essential for validating complex technical products such as electronic
 control units (ECUs).<br/>
 It supports standardized access to a broad range of test tools and provides automation of distributed test
 environments (SiL – MiL – HiL – vehicle).<br><br>
 
-<img src="./docs/images/platform_logo.png" align="right" alt="Automotive DevOps Platform" style="padding-left: 15px;">
-
-The **TraceTronic CustomChecks** project is part of
-the [Automotive DevOps Platform](https://www.tracetronic.com/products/automotive-devops-platform/) by TraceTronic. With
+The **tracetronic CustomChecks** project is part of
+the [Automotive DevOps Platform](https://www.tracetronic.com/products/automotive-devops-platform/) by tracetronic. With
 the **Automotive DevOps Platform**, we go from the big picture to the details and unite all phases of vehicle software
 testing – from planning the test scopes to summarizing the test results. At the same time, continuous monitoring across
 all test phases always provides an overview of all activities – even with several thousand test executions per day and
 in different test environments.<br><br>
 
-Please consider other open-source solutions by [TraceTronic](https://github.com/tracetronic?type=source),
-especially the [ECU-TEST Execution Plugin](https://github.com/jenkinsci/ecu-test-execution-plugin) and the
+Please consider other open-source solutions by [tracetronic](https://github.com/tracetronic?type=source),
+especially the [ecu.test Execution Plugin](https://github.com/jenkinsci/ecu-test-execution-plugin) and the
 [CX Templates](https://github.com/tracetronic/cx-templates).
 
 ## Table of Contents
@@ -50,7 +48,7 @@ especially the [ECU-TEST Execution Plugin](https://github.com/jenkinsci/ecu-test
 
 ### Installation
 
-The __recommended way__ to install the CustomChecks for ECU-TEST is by putting it into a _library workspace_, ensuring maximum
+The __recommended way__ to install the CustomChecks for ecu.test is by putting it into a _library workspace_, ensuring maximum
 flexibility.
 
 1. Clone this repository
@@ -60,19 +58,19 @@ flexibility.
 
 You should now be able to use the CustomChecks (see [First Check Run](#first-check-run)). Note that, upon first execution, the
 [configuration file](UserPyModules/CustomChecks/config_template.yaml) will be copied into the _Parameters/CustomChecks_ folder of your main
-ECU-TEST workspace. 
+ecu.test workspace. 
 
-You can change the namespace and the name of the CustomChecks library within ECU-TEST by modifying the [manifest](.workspace/manifest.xml)
+You can change the namespace and the name of the CustomChecks library within ecu.test by modifying the [manifest](.workspace/manifest.xml)
 file.
 
 #### Alternative Installation
 
 Alternatively, you can put the __CustomChecks__ folders under [UserPyModules](./UserPyModules) and *Parameters* into 
-the respective folders in your main ECU-TEST workspace. If ECU-TEST was already running, press `Ctrl + Shift + R` to reload the UserPyModules.
+the respective folders in your main ecu.test workspace. If ecu.test was already running, press `Ctrl + Shift + R` to reload the UserPyModules.
 
 ### First Check Run
 
-Create an empty ECU-TEST package and click on the check button:
+Create an empty ecu.test package and click on the check button:
 
 <img src="./docs/images/where_to_find_in_ET.png" align="left" alt="Check button" style="padding-right: 15px;"><br clear="left" />
 
@@ -91,12 +89,12 @@ The CustomChecks consist of two major parts:
 For a customized usage of the delivered checks, you need to adjust the [configuration file](./UserPyModules/CustomChecks/config_template.yaml) according to your needs.
 The configuration file will be copied to *Parameters/CustomChecks/config.yaml* __in the main workspace__ when first executing the CustomChecks.
 For a simple usage, this is basically the only thing you need to customize. For more involved features (such as writing your own checks), 
-see [Customization and Extension](#customization-and-extension). You can automate the checks using the ECU-TEST REST-API
+see [Customization and Extension](#customization-and-extension). You can automate the checks using the ecu.test REST-API
 and COM-API, see [Workflows](#workflows).
 
 ### Features
 
-With CustomChecks, you can check both ECU-TEST *Packages* and *Projects*. This repository contains checks for
+With CustomChecks, you can check both ecu.test *Packages* and *Projects*. This repository contains checks for
 * __package attributes__
   * desired attribute is set
   * attribute value follows regex pattern
@@ -152,8 +150,8 @@ The *\<CheckName>* element corresponds to the equally named Python module. For m
 For a manual execution of the CustomChecks for a specific package or project, simply click on the button shown under [First Check Run](#first-check-run). There, you can also choose whether the whole package tree should be checked recursively.
 
 #### Automation via API
-For automation purposes, such as usage within a CI, you can use the ECU-TEST REST-API. You can find the REST-API Swagger documentation
-of you local ECU-TEST instance under _http[]()://127.0.0.1:5050/api/v1/ui/_. With the _/checks_ endpoint, you can create check execution orders and
+For automation purposes, such as usage within a CI, you can use the ecu.test REST-API. You can find the REST-API Swagger documentation
+of you local ecu.test instance under _http[]()://127.0.0.1:5050/api/v1/ui/_. With the _/checks_ endpoint, you can create check execution orders and
 retrieve information about the result of the checks. The following code snippet shows an example in [Python](https://www.python.org/):
 
 ```Python
@@ -240,7 +238,7 @@ from .helper.CheckType import CheckType # enum for the type of check
 from .helper.ConfigKeys import ParameterKeys as pk # the keys available for usage in the script - can be extended
 from .helper.CheckResultWithMessage import check_result_with_message # used like CheckResult, but with custom message
 
-# some ECU-TEST imports
+# some ecu.test imports
 try:
     from tts.core.logging import SPrint, WPrint, EPrint
     from tts.core.api.internalApi.Api import Api
@@ -272,7 +270,7 @@ class CheckPackageMyExampleCheck(AbstractPackageCheck):
 
     Return messages:
     ---------------------
-     - Possible return messages of the check, displayed in ECU-TEST
+     - Possible return messages of the check, displayed in ecu.test
 
 
     Limitations
@@ -348,9 +346,9 @@ The script must be in the [CustomChecks](UserPyModules/CustomChecks) folder. The
    2. may directly implement the check, or alternatively may call other methods of the class, e.g. in multi-step checks
 6. the method containing most of the check logic
 7. *checkResults* is an array of type *CheckResult*
-8. the ECU-TEST Object API is called on the *Package* class
+8. the ecu.test Object API is called on the *Package* class
 9. a check which accesses the config key 'HardcodedName' as Python variable - if unsuccessful, append check result
-10. the ECU-TEST Object API is called on the *Package* class
+10. the ecu.test Object API is called on the *Package* class
 11. check with custom message
 
 A corresponding configuration in the *config.yaml* might look like this:
@@ -372,7 +370,7 @@ CheckPackageMyExampleCheck:
 Notice that in this example, we have used the config key *HardcodedName*, which is not by default set to be parsed. Add the entry
 `HARDCODED_NAME = 'HardcodedName'` to the *ParameterKeys* class in the [ConfigKeys](UserPyModules/CustomChecks/helper/ConfigKeys.py).
 
-You can change your scripts while keeping ECU-TEST running. Just reload the UserPyModules by pressing `Ctrl + Shift + R` within ECU-TEST after each change.
+You can change your scripts while keeping ecu.test running. Just reload the UserPyModules by pressing `Ctrl + Shift + R` within ecu.test after each change.
 Yo do _not_ need to reload anything when simply modifying the _config.yaml_.
 
 ## Contribution
