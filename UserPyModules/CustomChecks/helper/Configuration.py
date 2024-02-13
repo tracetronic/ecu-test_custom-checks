@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -283,9 +283,10 @@ class Configuration:
         # store relative path for config file
         config_rel_path = os.path.relpath(config_path,
                                           api.GetSetting('workspacePath')
-                                          .removesuffix('ECU-TEST'))
+                                          .removesuffix('ECU-TEST')
+                                          .removesuffix('ecu.test'))
 
-        # create config file from template if file not found under parameters in ECU-TEST
+        # create config file from template if file not found under parameters in ecu.test
         # workspace
         if not os.path.exists(config_path):
             if not os.path.exists(os.path.join(parameter_path, ref_config_folder)):

@@ -1,4 +1,4 @@
-# Copyright (c) 2022 TraceTronic GmbH
+# Copyright (c) 2022 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -23,6 +23,7 @@ COMPATIBLE_LICENSES = [
     "BSD 2-Clause",
     "PSF-2.0"
 ]
+
 
 class ComponentValidator:
     def __init__(self, allow_component, sbom_component):
@@ -113,10 +114,13 @@ def main(argv):
                         help="An allowlist for all software components which may be used in this product.")
     parser.add_argument("-s", "--sbom", default="cyclonedx.json", required=False,
                         help="An sbom (.json in cyclonedx format) of the actual components used in this product. "
-                        "Default value: '%(default)s'")
+                             "Default value: '%(default)s'")
 
     args = parser.parse_args()
     allow_filepath, sbom_filepath = args.allowlist, args.sbom
+
+    # generate sbom_path
+    os.system(f"cyclonedx-py requirements --output-format json -o {sbom_filepath}")
 
     allow_json = read_json(allow_filepath)
     sbom_json = read_json(sbom_filepath)
@@ -134,8 +138,5 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    # generate sbom_path
-    os.system("cyclonedx-py -r --format json --force")
-
     # check against allowlist
     main(sys.argv[1:])

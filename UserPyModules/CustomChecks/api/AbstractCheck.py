@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (C) 2023 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -26,7 +26,7 @@ class AbstractCheck(ABC):
         """
         Will always be implemented in the custom check as
         return type(self).__name__ and returns the name of the class type.
-        Belongs to the CustomChecks interface for ECU-TEST.
+        Belongs to the CustomChecks interface for ecu.test.
 
         Returns
         -------
@@ -57,7 +57,7 @@ class AbstractCheck(ABC):
     def Run(self, test_item):
         """
         Executes the checks. Uses the template method 'check', which must be implemented in the
-        check modules. Belongs to the CustomChecks interface for ECU-TEST.
+        check modules. Belongs to the CustomChecks interface for ecu.test.
 
         Parameters
         ----------
