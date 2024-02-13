@@ -127,6 +127,7 @@
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_DESCRIPTION"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.REGEX_DESCRIPTION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.REGEX_PATTERN"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.REGEX_PATTERN</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.RETURNVALUE"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.RETURNVALUE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SEARCH_DEPTH"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.SEARCH_DEPTH</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SORT_METHOD"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.SORT_METHOD</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.TESTCASEFLAG"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.TESTCASEFLAG</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="UserPyModules.CustomChecks.helper.html#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.UNDEFINED"><code class="docutils literal notranslate"><span class="pre">ParameterKeys.UNDEFINED</span></code></a></li>
@@ -264,26 +265,26 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.CheckPackageContentAllowed.</span></span><span class="sig-name descname"><span class="pre">CheckPackageContentAllowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internalApi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
-<section id="check-package-content">
-<h3>Check Package Content<a class="headerlink" href="#check-package-content" title="Permalink to this heading">¶</a></h3>
+<section id="check-package-for-allowed-test-steps">
+<h3>Check Package for allowed test steps<a class="headerlink" href="#check-package-for-allowed-test-steps" title="Permalink to this heading">¶</a></h3>
 <section id="id1">
 <h4>Description<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
-<p>Checks whether the package has forbidden content via an allowlist.</p>
+<p>Checks whether the target package only consists of the specified test steps
+in the configured package layers.</p>
 </section>
-<section id="id2">
-<h4>Specifics and Results<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
-<p>Checks for following forbidden test steps:</p>
-<ul class="simple">
-<li><p>To-Do test step</p></li>
-<li><p>Pre- or Postcondition</p></li>
-</ul>
-<p>Return messages:</p>
-<ul class="simple">
+<section id="instructions">
+<h4>Instructions:<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h4>
+<p>to configure this test in the config.yaml, add allowed TestStep-Types in
+AllowList Parameter and the considered SearchDepth, if no SearchDepth is configured,
+all package layers are checked.</p>
+</section>
+<section id="return-messages">
+<h4>Return messages:<a class="headerlink" href="#return-messages" title="Permalink to this heading">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
 <li><p>“Not allowed content of type &lt;ts_type&gt; in line &lt;ts_line&gt;!”</p></li>
 </ul>
-</section>
-<section id="limitations">
-<h4>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h4>
+</div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.GetName">
 <span class="sig-name descname"><span class="pre">GetName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.GetName" title="Permalink to this definition">¶</a></dt>
@@ -294,8 +295,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id3">
-<h5>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h5>
+<section id="id2">
+<h5>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -303,9 +304,50 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id4">
-<h5>Returns<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h5>
+<section id="id3">
+<h5>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.check_test_step">
+<span class="sig-name descname"><span class="pre">check_test_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_depth</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.check_test_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the test step is allowed by the defined allow list;
+checks child test steps recursively as well for the given search depth</p>
+<section id="id4">
+<h5>Parameters<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h5>
+<dl class="simple">
+<dt>test_step: TestStep object</dt><dd><p>the test step item</p>
+</dd>
+<dt>layer: int</dt><dd><p>the current package layer</p>
+</dd>
+<dt>allow_list: List[str]</dt><dd><p>allowed test step types</p>
+</dd>
+<dt>search_depth: int</dt><dd><p>the search depth</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h5>Returns<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h5>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.get_test_steps_of_item">
+<span class="sig-name descname"><span class="pre">get_test_steps_of_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentAllowed.CheckPackageContentAllowed.get_test_steps_of_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the test steps of the target item</p>
+<section id="id6">
+<h5>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h5>
+<dl class="simple">
+<dt>item: Package object or TestStep object</dt><dd><p>tha package or test step item</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h5>Returns<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h5>
+<p>test step items</p>
 </section>
 </dd></dl>
 
@@ -320,14 +362,14 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.CheckPackageContentForbidden.</span></span><span class="sig-name descname"><span class="pre">CheckPackageContentForbidden</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">internalApi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
-<section id="id5">
-<h3>Check Package Content<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
-<section id="id6">
-<h4>Description<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<section id="check-package-content">
+<h3>Check Package Content<a class="headerlink" href="#check-package-content" title="Permalink to this heading">¶</a></h3>
+<section id="id8">
+<h4>Description<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
 <p>Checks whether the package has forbidden content via a denylist.</p>
 </section>
-<section id="id7">
-<h4>Specifics and Results<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<section id="id9">
+<h4>Specifics and Results<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h4>
 <p>Checks for following forbidden test steps:</p>
 <ul class="simple">
 <li><p>To-Do test step</p></li>
@@ -338,8 +380,8 @@ pattern. Three types of checks are possible</p>
 <li><p>“Forbidden content of type &lt;ts_type&gt; in line &lt;ts_line&gt;!”</p></li>
 </ul>
 </section>
-<section id="id8">
-<h4>Limitations<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<section id="limitations">
+<h4>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h4>
 <dl class="py method">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden.GetName">
 <span class="sig-name descname"><span class="pre">GetName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden.GetName" title="Permalink to this definition">¶</a></dt>
@@ -350,8 +392,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageContentForbidden.CheckPackageContentForbidden.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id9">
-<h5>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h5>
+<section id="id10">
+<h5>Parameters<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -359,8 +401,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id10">
-<h5>Returns<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h5>
+<section id="id11">
+<h5>Returns<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
 </section>
 </dd></dl>
@@ -378,12 +420,12 @@ pattern. Three types of checks are possible</p>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
 <section id="check-package-general-information">
 <h3>Check Package General Information<a class="headerlink" href="#check-package-general-information" title="Permalink to this heading">¶</a></h3>
-<section id="id11">
-<h4>Description<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h4>
+<section id="id12">
+<h4>Description<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
 <p>Checks whether the general package information are valid.</p>
 </section>
-<section id="id12">
-<h4>Specifics and Results<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<section id="id13">
+<h4>Specifics and Results<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
 <p>Checks the following fields:</p>
 <ul class="simple">
 <li><p>Package description</p></li>
@@ -402,8 +444,8 @@ pattern. Three types of checks are possible</p>
 <li><p>“’&lt;Version&gt;’ does not match pattern &lt;RegexPattern&gt;”</p></li>
 </ul>
 </section>
-<section id="id13">
-<h4>Limitations<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h4>
+<section id="id14">
+<h4>Limitations<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>When more flags are added in the config, the source code needs to be extended</p></li>
 </ul>
@@ -417,8 +459,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id14">
-<h5>Parameters<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h5>
+<section id="id15">
+<h5>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -426,8 +468,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id15">
-<h5>Returns<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h5>
+<section id="id16">
+<h5>Returns<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
 </section>
 </dd></dl>
@@ -436,8 +478,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_description">
 <span class="sig-name descname"><span class="pre">check_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the description</p>
-<section id="id16">
-<h5>Parameters<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h5>
+<section id="id17">
+<h5>Parameters<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>package: Package object</dt><dd><p>the package</p>
 </dd>
@@ -445,8 +487,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id17">
-<h5>Returns<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h5>
+<section id="id18">
+<h5>Returns<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -455,8 +497,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_test_case_flag">
 <span class="sig-name descname"><span class="pre">check_test_case_flag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tc_flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_test_case_flag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether the test case flag is set</p>
-<section id="id18">
-<h5>Parameters<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h5>
+<section id="id19">
+<h5>Parameters<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>package: Package object</dt><dd><p>the package</p>
 </dd>
@@ -464,8 +506,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id19">
-<h5>Returns<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h5>
+<section id="id20">
+<h5>Returns<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -474,8 +516,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_version">
 <span class="sig-name descname"><span class="pre">check_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageGeneralInformation.CheckPackageGeneralInformation.check_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the version</p>
-<section id="id20">
-<h5>Parameters<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h5>
+<section id="id21">
+<h5>Parameters<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>package: Package object</dt><dd><p>the package</p>
 </dd>
@@ -483,8 +525,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id21">
-<h5>Returns<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h5>
+<section id="id22">
+<h5>Returns<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -502,12 +544,12 @@ pattern. Three types of checks are possible</p>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
 <section id="check-local-package-mapping">
 <h3>Check Local Package Mapping<a class="headerlink" href="#check-local-package-mapping" title="Permalink to this heading">¶</a></h3>
-<section id="id22">
-<h4>Description<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h4>
+<section id="id23">
+<h4>Description<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h4>
 <p>Checks whether the package has forbidden mapping types in its local mapping via a denylist.</p>
 </section>
-<section id="id23">
-<h4>Specifics and Results<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h4>
+<section id="id24">
+<h4>Specifics and Results<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h4>
 <p>Instructions:</p>
 <p>Specify the forbidden mapping types in the YAML configuration file</p>
 <p>Return messages:</p>
@@ -515,8 +557,8 @@ pattern. Three types of checks are possible</p>
 <li><p>“mapping item with name ‘&lt;mapping name&gt;’ is of type ‘&lt;mapping type&gt;’ which is forbidden!”</p></li>
 </ul>
 </section>
-<section id="id24">
-<h4>Limitations<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h4>
+<section id="id25">
+<h4>Limitations<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h4>
 <dl class="py method">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.GetName">
 <span class="sig-name descname"><span class="pre">GetName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.GetName" title="Permalink to this definition">¶</a></dt>
@@ -527,8 +569,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.CheckResult.CheckResult" title="UserPyModules.CustomChecks.api.CheckResult.CheckResult"><span class="pre">CheckResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id25">
-<h5>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h5>
+<section id="id26">
+<h5>Parameters<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -536,8 +578,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id26">
-<h5>Returns<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h5>
+<section id="id27">
+<h5>Returns<a class="headerlink" href="#id27" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
 </section>
 </dd></dl>
@@ -546,8 +588,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check_mapping_item_mapping_type">
 <span class="sig-name descname"><span class="pre">check_mapping_item_mapping_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deny_list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.CheckResult.CheckResult" title="UserPyModules.CustomChecks.api.CheckResult.CheckResult"><span class="pre">CheckResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check_mapping_item_mapping_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check a single mapping item for forbidden types</p>
-<section id="id27">
-<h5>Parameters<a class="headerlink" href="#id27" title="Permalink to this heading">¶</a></h5>
+<section id="id28">
+<h5>Parameters<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>mapping_item: Mapping item object</dt><dd><p>the mapping item</p>
 </dd>
@@ -555,8 +597,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id28">
-<h5>Returns<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h5>
+<section id="id29">
+<h5>Returns<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -565,8 +607,8 @@ pattern. Three types of checks are possible</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check_package_mapping_types">
 <span class="sig-name descname"><span class="pre">check_package_mapping_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.CheckResult.CheckResult" title="UserPyModules.CustomChecks.api.CheckResult.CheckResult"><span class="pre">CheckResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageLocalMapping.CheckPackageLocalMapping.check_package_mapping_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check a package for forbidden mapping types in local mapping</p>
-<section id="id29">
-<h5>Parameters<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h5>
+<section id="id30">
+<h5>Parameters<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>package: Package object</dt><dd><p>the package</p>
 </dd>
@@ -574,8 +616,8 @@ pattern. Three types of checks are possible</p>
 </dd>
 </dl>
 </section>
-<section id="id30">
-<h5>Returns<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h5>
+<section id="id31">
+<h5>Returns<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -593,17 +635,17 @@ pattern. Three types of checks are possible</p>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
 <section id="check-package-namespace">
 <h3>Check Package Namespace<a class="headerlink" href="#check-package-namespace" title="Permalink to this heading">¶</a></h3>
-<section id="id31">
-<h4>Description<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h4>
+<section id="id32">
+<h4>Description<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h4>
 <p>Checks whether the package file name is valid.</p>
 </section>
-<section id="instructions">
-<h4>Instructions:<a class="headerlink" href="#instructions" title="Permalink to this heading">¶</a></h4>
+<section id="id33">
+<h4>Instructions:<a class="headerlink" href="#id33" title="Permalink to this heading">¶</a></h4>
 <p>Specify the pattern of the checked packages in the YAML configuration file as Regex.
 The parameter for this check is called &lt;RegexPackageName&gt; in the config.yaml.</p>
 </section>
-<section id="return-messages">
-<h4>Return messages:<a class="headerlink" href="#return-messages" title="Permalink to this heading">¶</a></h4>
+<section id="id34">
+<h4>Return messages:<a class="headerlink" href="#id34" title="Permalink to this heading">¶</a></h4>
 <blockquote>
 <div><ul class="simple">
 <li><p>“Please save the package &lt;package_name&gt;. Could not find folder location!”</p></li>
@@ -613,8 +655,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 </ul>
 </div></blockquote>
 </section>
-<section id="id32">
-<h4>Limitations<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h4>
+<section id="id35">
+<h4>Limitations<a class="headerlink" href="#id35" title="Permalink to this heading">¶</a></h4>
 <p>…</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageNamespace.CheckPackageNamespace.GetName">
@@ -641,8 +683,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck" title="UserPyModules.CustomChecks.api.AbstractPackageCheck.AbstractPackageCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPackageCheck</span></code></a></p>
 <section id="check-package-variables">
 <h3>Check Package Variables<a class="headerlink" href="#check-package-variables" title="Permalink to this heading">¶</a></h3>
-<section id="id33">
-<h4>Description<a class="headerlink" href="#id33" title="Permalink to this heading">¶</a></h4>
+<section id="id36">
+<h4>Description<a class="headerlink" href="#id36" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Checks for each variable:</dt><dd><ul>
@@ -663,8 +705,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 </dd>
 </dl>
 </section>
-<section id="id34">
-<h4>Specifics and Results<a class="headerlink" href="#id34" title="Permalink to this heading">¶</a></h4>
+<section id="id37">
+<h4>Specifics and Results<a class="headerlink" href="#id37" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Detailed information for invalid configuration</dt><dd><ul>
@@ -677,8 +719,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 </li>
 </ul>
 </section>
-<section id="id35">
-<h4>Limitations<a class="headerlink" href="#id35" title="Permalink to this heading">¶</a></h4>
+<section id="id38">
+<h4>Limitations<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h4>
 <dl class="py method">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.GetName">
 <span class="sig-name descname"><span class="pre">GetName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.GetName" title="Permalink to this definition">¶</a></dt>
@@ -689,8 +731,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id36">
-<h5>Parameters<a class="headerlink" href="#id36" title="Permalink to this heading">¶</a></h5>
+<section id="id39">
+<h5>Parameters<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -698,8 +740,8 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 </dd>
 </dl>
 </section>
-<section id="id37">
-<h5>Returns<a class="headerlink" href="#id37" title="Permalink to this heading">¶</a></h5>
+<section id="id40">
+<h5>Returns<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
 </section>
 </dd></dl>
@@ -708,12 +750,12 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_undefined_type">
 <span class="sig-name descname"><span class="pre">check_undefined_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_undefined_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks varaible type is not undefined.</p>
-<section id="id38">
-<h5>Parameters<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h5>
+<section id="id41">
+<h5>Parameters<a class="headerlink" href="#id41" title="Permalink to this heading">¶</a></h5>
 <p>variable: the variable to be checked</p>
 </section>
-<section id="id39">
-<h5>Returns<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h5>
+<section id="id42">
+<h5>Returns<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -722,13 +764,13 @@ The parameter for this check is called &lt;RegexPackageName&gt; in the config.ya
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable">
 <span class="sig-name descname"><span class="pre">check_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks name and description of a given variable.</p>
-<section id="id40">
-<h5>Parameters<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h5>
+<section id="id43">
+<h5>Parameters<a class="headerlink" href="#id43" title="Permalink to this heading">¶</a></h5>
 <p>variable: the package to be checked
 parameters: contains the expected values (name and description) of the checked parameters</p>
 </section>
-<section id="id41">
-<h5>Returns<a class="headerlink" href="#id41" title="Permalink to this heading">¶</a></h5>
+<section id="id44">
+<h5>Returns<a class="headerlink" href="#id44" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -737,13 +779,13 @@ parameters: contains the expected values (name and description) of the checked p
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_description">
 <span class="sig-name descname"><span class="pre">check_variable_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the description of the variables.</p>
-<section id="id42">
-<h5>Parameters<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h5>
+<section id="id45">
+<h5>Parameters<a class="headerlink" href="#id45" title="Permalink to this heading">¶</a></h5>
 <p>variable: the variable to be checked
 parameters: contains the expected description</p>
 </section>
-<section id="id43">
-<h5>Returns<a class="headerlink" href="#id43" title="Permalink to this heading">¶</a></h5>
+<section id="id46">
+<h5>Returns<a class="headerlink" href="#id46" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -752,13 +794,13 @@ parameters: contains the expected description</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_name">
 <span class="sig-name descname"><span class="pre">check_variable_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks name of a given variable.</p>
-<section id="id44">
-<h5>Parameters<a class="headerlink" href="#id44" title="Permalink to this heading">¶</a></h5>
+<section id="id47">
+<h5>Parameters<a class="headerlink" href="#id47" title="Permalink to this heading">¶</a></h5>
 <p>variable: the variable to be checked
 parameters: contains the expected name</p>
 </section>
-<section id="id45">
-<h5>Returns<a class="headerlink" href="#id45" title="Permalink to this heading">¶</a></h5>
+<section id="id48">
+<h5>Returns<a class="headerlink" href="#id48" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -767,13 +809,13 @@ parameters: contains the expected name</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_order">
 <span class="sig-name descname"><span class="pre">check_variable_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the order of the variable list.</p>
-<section id="id46">
-<h5>Parameters<a class="headerlink" href="#id46" title="Permalink to this heading">¶</a></h5>
+<section id="id49">
+<h5>Parameters<a class="headerlink" href="#id49" title="Permalink to this heading">¶</a></h5>
 <p>variable: the package to be checked
 parameters: contains the expected ordering</p>
 </section>
-<section id="id47">
-<h5>Returns<a class="headerlink" href="#id47" title="Permalink to this heading">¶</a></h5>
+<section id="id50">
+<h5>Returns<a class="headerlink" href="#id50" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -782,12 +824,12 @@ parameters: contains the expected ordering</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_type">
 <span class="sig-name descname"><span class="pre">check_variable_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.check_variable_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks type consistency of a given variable.</p>
-<section id="id48">
-<h5>Parameters<a class="headerlink" href="#id48" title="Permalink to this heading">¶</a></h5>
+<section id="id51">
+<h5>Parameters<a class="headerlink" href="#id51" title="Permalink to this heading">¶</a></h5>
 <p>variable: the variable to be checked</p>
 </section>
-<section id="id49">
-<h5>Returns<a class="headerlink" href="#id49" title="Permalink to this heading">¶</a></h5>
+<section id="id52">
+<h5>Returns<a class="headerlink" href="#id52" title="Permalink to this heading">¶</a></h5>
 <p>check results</p>
 </section>
 </dd></dl>
@@ -796,12 +838,12 @@ parameters: contains the expected ordering</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.get_var_type">
 <span class="sig-name descname"><span class="pre">get_var_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckPackageVariables.CheckPackageVariables.get_var_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the type of a variable (Local Var, Function, Parameter, Return value)</p>
-<section id="id50">
-<h5>Parameters<a class="headerlink" href="#id50" title="Permalink to this heading">¶</a></h5>
+<section id="id53">
+<h5>Parameters<a class="headerlink" href="#id53" title="Permalink to this heading">¶</a></h5>
 <p>variable: the variable to be checked</p>
 </section>
-<section id="id51">
-<h5>Returns<a class="headerlink" href="#id51" title="Permalink to this heading">¶</a></h5>
+<section id="id54">
+<h5>Returns<a class="headerlink" href="#id54" title="Permalink to this heading">¶</a></h5>
 <p>The type of the variable, or None if no matching type was found.</p>
 </section>
 </dd></dl>
@@ -819,12 +861,12 @@ parameters: contains the expected ordering</p>
 <dd><p>Bases: <a class="reference internal" href="UserPyModules.CustomChecks.api.html#UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck" title="UserPyModules.CustomChecks.api.AbstractProjectCheck.AbstractProjectCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractProjectCheck</span></code></a></p>
 <section id="check-project-attributes">
 <h3>Check project Attributes<a class="headerlink" href="#check-project-attributes" title="Permalink to this heading">¶</a></h3>
-<section id="id52">
-<h4>Description<a class="headerlink" href="#id52" title="Permalink to this heading">¶</a></h4>
+<section id="id55">
+<h4>Description<a class="headerlink" href="#id55" title="Permalink to this heading">¶</a></h4>
 <p>Checks whether all project attributes are set according to YAML config.</p>
 </section>
-<section id="id53">
-<h4>Specifics and Results<a class="headerlink" href="#id53" title="Permalink to this heading">¶</a></h4>
+<section id="id56">
+<h4>Specifics and Results<a class="headerlink" href="#id56" title="Permalink to this heading">¶</a></h4>
 <p>Instructions:</p>
 <p>Specify the attributes to be checked in the YAML configuration file according to the following
 pattern. Three types of checks are possible</p>
@@ -872,8 +914,8 @@ empty:</p>
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.CheckProjectAttributes.CheckProjectAttributes.check">
 <span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#UserPyModules.CustomChecks.CheckProjectAttributes.CheckProjectAttributes.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Needs to be implemented in the custom check (template method)</p>
-<section id="id54">
-<h5>Parameters<a class="headerlink" href="#id54" title="Permalink to this heading">¶</a></h5>
+<section id="id57">
+<h5>Parameters<a class="headerlink" href="#id57" title="Permalink to this heading">¶</a></h5>
 <dl class="simple">
 <dt>test_item: item from Object API</dt><dd><p>generic test item; Package, Project or AnalysisPackage</p>
 </dd>
@@ -881,8 +923,8 @@ empty:</p>
 </dd>
 </dl>
 </section>
-<section id="id55">
-<h5>Returns<a class="headerlink" href="#id55" title="Permalink to this heading">¶</a></h5>
+<section id="id58">
+<h5>Returns<a class="headerlink" href="#id58" title="Permalink to this heading">¶</a></h5>
 <p>list of CheckResult (empty if no violation was found)</p>
 </section>
 </dd></dl>
@@ -975,7 +1017,7 @@ empty:</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2023 TraceTronic GmbH.
+      &copy;2023 tracetronic GmbH.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>

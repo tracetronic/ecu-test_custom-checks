@@ -219,6 +219,11 @@ parameters - the parameters from the config.yaml for the attribute check</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SEARCH_DEPTH">
+<span class="sig-name descname"><span class="pre">SEARCH_DEPTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SearchDepth'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SEARCH_DEPTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SORT_METHOD">
 <span class="sig-name descname"><span class="pre">SORT_METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SortMethod'</span></em><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ConfigKeys.ParameterKeys.SORT_METHOD" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -363,7 +368,7 @@ These conditions are specified under the respective ‘Conditions’ section in 
 <section id="id9">
 <h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
 <p>check_name: Current CustomCheck name
-check_object: ECU-TEST Package-Object, Project-Object from Object Api
+check_object: ecu.test Package-Object, Project-Object from Object Api
 check: Current type of package that gets checked for conditions</p>
 </section>
 <section id="id10">
@@ -392,7 +397,7 @@ Check configurations with the ‘Enabled’ flag removed</p>
 <dd><section id="id13">
 <h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
 <p>check_name: Current CustomCheck name
-check_object: ECU-TEST-Package-Object from Object Api
+check_object: ecu.test-Package-Object from Object Api
 check: Current type of package that gets checked for conditions</p>
 </section>
 <section id="id14">
@@ -404,7 +409,7 @@ check: Current type of package that gets checked for conditions</p>
 </section>
 <section id="module-UserPyModules.CustomChecks.helper.ecu_test_api">
 <span id="userpymodules-customchecks-helper-ecu-test-api-module"></span><h2>UserPyModules.CustomChecks.helper.ecu_test_api module<a class="headerlink" href="#module-UserPyModules.CustomChecks.helper.ecu_test_api" title="Permalink to this heading">¶</a></h2>
-<p>Wrapper for importing ECU-TEST ApiClient of currently running ECU-TEST version.</p>
+<p>Wrapper for importing ecu.test ApiClient of currently running ecu.test version.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">ObjApiProvider</span></span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.ObjApiProvider" title="Permalink to this definition">¶</a></dt>
@@ -438,7 +443,7 @@ check: Current type of package that gets checked for conditions</p>
 <dd><section id="id17">
 <h3>Returns<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h3>
 <blockquote>
-<div><p>ECU-TEST Object API</p>
+<div><p>ecu.test Object API</p>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -449,7 +454,7 @@ check: Current type of package that gets checked for conditions</p>
 <dd><section id="id18">
 <h3>Returns<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
 <blockquote>
-<div><p>PackageApi from the ECU-TEST Object API</p>
+<div><p>PackageApi from the ecu.test Object API</p>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -460,7 +465,7 @@ check: Current type of package that gets checked for conditions</p>
 <dd><section id="id19">
 <h3>Returns<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
 <blockquote>
-<div><p>ProjectApi from the ECU-TEST Object API</p>
+<div><p>ProjectApi from the ecu.test Object API</p>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -471,7 +476,7 @@ check: Current type of package that gets checked for conditions</p>
 <dd><section id="id20">
 <h3>Returns<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
 <blockquote>
-<div><p>TraceAnalysisApi from the ECU-TEST Object API</p>
+<div><p>TraceAnalysisApi from the ecu.test Object API</p>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -481,13 +486,13 @@ check: Current type of package that gets checked for conditions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.get_api">
 <span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">get_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.get_api" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an instance of the ECU-TEST api</p>
+<dd><p>Returns an instance of the ecu.test api</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="UserPyModules.CustomChecks.helper.ecu_test_api.get_object_api">
 <span class="sig-prename descclassname"><span class="pre">UserPyModules.CustomChecks.helper.ecu_test_api.</span></span><span class="sig-name descname"><span class="pre">get_object_api</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserPyModules.CustomChecks.helper.ecu_test_api.get_object_api" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the Object API of ECU-TEST.</p>
+<dd><p>Gets the Object API of ecu.test.</p>
 <section id="id21">
 <h3>Returns<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h3>
 <blockquote>
@@ -578,7 +583,7 @@ check: Current type of package that gets checked for conditions</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2023 TraceTronic GmbH.
+      &copy;2023 tracetronic GmbH.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
