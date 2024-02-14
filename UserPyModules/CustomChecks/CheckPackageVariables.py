@@ -122,6 +122,38 @@ class CheckPackageVariables(AbstractPackageCheck):
         #EPrint(f'Variable type is not supported: {variablename} - {variable_type} - \
         #         P_{variable_is_parameter} - R_{variable_is_return}')
 
+    def check_unused_variable(self, package):
+        """
+        Checks if package contains unused variables
+
+        Parameters
+        ----------
+        package: the package to be checked
+
+        Returns
+        -------
+        check results
+
+        """
+
+        # init clean check result list
+        checkResults = []
+
+        unused_varibles_list = []
+        unused_varibles = []
+
+        try:
+            unused_varibles = package.GetUnusedVariables()
+        except AttributeError:
+            pass
+
+        # API returns a list
+        if unused_varibles:
+            for variable in unused_varibles:
+                unused_varibles_list.append(variable.GetName())
+            checkResults.append(CheckResult(f'Unused variables detected: {unused_varibles_list}'))
+
+        return checkResults
 
     def check_variable(self, package, parameters):
         """
@@ -140,6 +172,8 @@ class CheckPackageVariables(AbstractPackageCheck):
 
         # init clean check result list
         checkResults = []
+
+        checkResults.extend(self.check_unused_variable(package))
 
         if pk.ALLOW_UNDEFINED in parameters:
             allow_undefined_variable = parameters[pk.ALLOW_UNDEFINED]
