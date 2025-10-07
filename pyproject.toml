@@ -4,6 +4,7 @@
 
 [tool.poetry]
 name =  "tracetronic CustomChecks"
+package-mode = false
 version = "1.0"
 description = "'CustomChecks' is an ecu.test module to check packages and analysis packages."
 license = "MIT"
